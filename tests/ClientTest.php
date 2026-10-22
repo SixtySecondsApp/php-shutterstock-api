@@ -29,11 +29,7 @@ class ClientTest extends TestCase
     {
         $client = $this->getClient();
 
-        $this->assertAttributeInstanceOf(
-            'GuzzleHttp\Client',
-            'guzzle',
-            $client
-        );
+        $this->assertInstanceOf(Guzzle::class, $this->getClientGuzzle($client));
     }
 
     public function testConstructSetsJsonMiddleware()
@@ -52,11 +48,7 @@ class ClientTest extends TestCase
 
         $client = $this->getClient();
 
-        $this->assertAttributeEquals(
-            $guzzle,
-            'guzzle',
-            $client
-        );
+        $this->assertEquals($guzzle, $this->getClientGuzzle($client));
     }
 
     /**

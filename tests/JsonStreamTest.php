@@ -41,11 +41,9 @@ class JsonStreamTest extends TestCase
         ];
     }
 
-    /**
-     * @expectedException RuntimeException
-     */
     public function testJsonSerializeException()
     {
+        $this->expectException(\RuntimeException::class);
         $jsonStream = $this->getJsonStream('words');
         $jsonStream->jsonSerialize();
     }
