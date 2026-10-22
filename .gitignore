@@ -3,3 +3,5 @@
 codeclimate.json
 composer.phar
 coverage.xml
+
+.phpunit.result.cache

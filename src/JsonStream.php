@@ -12,7 +12,9 @@ class JsonStream implements StreamInterface, JsonSerializable
 
     use StreamDecoratorTrait;
 
-    public function jsonSerialize()
+    protected StreamInterface $stream;
+
+    public function jsonSerialize(): mixed
     {
         $contents = (string) $this->getContents();
         if ($contents === '') {

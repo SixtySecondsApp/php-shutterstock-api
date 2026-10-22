@@ -58,3 +58,19 @@ For more examples and a demo application using this client, see [LINK HERE].
 ## License
 
 [Apache 2.0](LICENSE) © 2016-2017 Shutterstock Images, LLC
+
+
+## PHP 8.2 host-migration candidate
+
+This branch requires PHP 8.2+ and Guzzle 7.15.2+ (current resolved 7.16.0),
+replacing the Guzzle 6-only constraint that blocked the video host migration.
+The development suite uses PHPUnit 9.6 and keeps JSON stream serialisation
+compatible with PHP 8.2 without dynamic-property or tentative-return warnings.
+This is a breaking runtime-requirement change: coordinate the host PHP 8.2
+migration and its Composer lock before adopting this branch. The live PHP 7.4
+emergency-containment release keeps its existing dependency lock.
+
+Local validation uses PHP 8.2.35 with actual extensions: Composer platform checks
+and security audit pass; all 19 mock-based request/JSON tests pass with no network
+access. No platform requirements or security advisories are ignored. Coverage
+can be collected using the existing CI command when a driver is installed.

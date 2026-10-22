@@ -10,6 +10,13 @@ use ReflectionClass;
 trait ClientWithMockHandlerTrait
 {
 
+    protected function getClientGuzzle(Client $client)
+    {
+        $property = (new ReflectionClass($client))->getProperty('guzzle');
+        $property->setAccessible(true);
+        return $property->getValue($client);
+    }
+
     protected function setClientWithMockHandler(Client $client, MockHandler $mockHandler)
     {
         $options = [
